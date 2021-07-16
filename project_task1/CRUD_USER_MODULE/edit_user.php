@@ -11,7 +11,7 @@
 
     $_SESSION['message'] = "Invalid Id";
 
-    header("Locattion: view_user.php");
+    header("Location: view_user.php");
    }
 
 
