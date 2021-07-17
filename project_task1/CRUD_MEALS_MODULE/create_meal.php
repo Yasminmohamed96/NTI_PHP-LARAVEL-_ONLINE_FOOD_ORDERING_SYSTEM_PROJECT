@@ -1,6 +1,6 @@
 <?php require "dbconnection.php";
 $rest_id=$_GET['id'];
-echo $rest_id;
+//echo $rest_id;
 $rest_id=filter_var($rest_id,FILTER_SANITIZE_NUMBER_INT);
 $message="";
 if(!filter_var($rest_id,FILTER_VALIDATE_INT))
@@ -119,7 +119,7 @@ function CleanInputs($input){
     //insert all resturants data except category__id. will insert category first to get its id  
     $sql="insert into meals (meal_name,meal_description,meal_price,meal_image,resturants_id) values ('$name_','$description','$price','$disPath','$rest_id')";
     $op=mysqli_query($con,$sql);
-    echo mysqli_error($con);
+   // echo mysqli_error($con);
 
     if ($op)
      {
@@ -168,18 +168,18 @@ function CleanInputs($input){
 
 <div class="form-group">
  <label for="exampleInputEmail1">Meal Description</label>
- <input type="text"  name="description" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter resturant description">
+ <input type="text"  name="description" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter meal description">
 </div>
 
 <div class="form-group">
  <label for="exampleInputEmail1">Meal price</label>
- <input type="number"  name="price" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter resturants_price">
+ <input type="number"  name="price" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter meal">
 </div>
 
 
 <div class="form-group">
  <label for="exampleInputEmail1">Meal Image</label>
- <input type="file"  name="meal_image" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter website image">
+ <input type="file"  name="meal_image" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter meal image">
 </div>
 <button type="submit" class="btn btn-primary"style="">Submit</button>
 

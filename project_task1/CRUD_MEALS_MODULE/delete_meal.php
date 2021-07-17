@@ -11,12 +11,18 @@
   if(filter_var($id,FILTER_VALIDATE_INT)){
     
     // code .... 
+    $sql1="SELECT meal_image ,resturants_id FROM meals WHERE  meal_id =$id";
+    $op1 = mysqli_query($con,$sql1);
+    $data=mysqli_fetch_assoc($op1);
+    $old_file=$data['meal_image'];
+      unlink($old_file);
+
     $sql = "delete from meals where meal_id =".$id;
 
     $op = mysqli_query($con,$sql);
      
     if($op){
-
+     
         $message = "meal Deleted .";
     
     }else{
@@ -31,8 +37,8 @@
 
 
     $_SESSION['message'] = $message;
-
-    header("Location: view_meal.php");
+    $rest_id=$data["resturants_id"];
+    header("Location: view_meal.php?id=".$rest_id);
 
 
 ?>
