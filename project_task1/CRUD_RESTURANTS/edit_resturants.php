@@ -1,5 +1,5 @@
 <?php require 'dbConnection.php';
-     $iid = isset($_GET['id']) ? $_GET['id'] : '';
+     $iid = $_GET['id'];
    //$iid=$_GET['id'];
    $iid=filter_var($iid,FILTER_SANITIZE_NUMBER_INT);
   
@@ -152,7 +152,9 @@ function CleanInputs($input){
     if(count($errorMessages) == 0)
     {
      
-     $sql3="UPDATE resturants set resturants_name='$name_',resturants_address='$address',resturants_url='$url',resturants_phone='$phone',resturants_image='$disPath' where user_id=$save_id ";
+     $sql3="UPDATE resturants
+      SET resturants_name='$name_',resturants_address='$address',resturants_url='$url',resturants_phone='$phone',resturants_image='$disPath'
+      WHERE resturants_id= '$iid' ";
      $op3=mysqli_query($con,$sql3);
      $sql4="UPDATE resturants_category set category_name='$category_name'where category_id=$category_id ";
      $op4=mysqli_query($con,$sql4);
@@ -171,8 +173,7 @@ function CleanInputs($input){
   $sql="SELECT resturants.* ,resturants_category.* FROM resturants INNER JOIN resturants_category ON resturants.category__id=resturants_category.category_id WHERE resturants_id='$iid' ";
   $op = mysqli_query($con,$sql);
   $data = mysqli_fetch_assoc($op);
-  echo mysqli_error($con);
-   //var_dump($data);
+  // var_dump($data);
     
 ?>
 <!DOCTYPE html>
@@ -189,7 +190,7 @@ function CleanInputs($input){
 
 <div class="container">
 <h2>Edit Resturant data </h2>
-<form  method="post"  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"  enctype ="multipart/form-data">
+<form  method="post"  action="edit_resturants.php?id=<?php echo $data['resturants_id'];?>"  enctype ="multipart/form-data">
 
 <div class="form-group">
  <label for="exampleInputEmail1">Resturant Name</label>

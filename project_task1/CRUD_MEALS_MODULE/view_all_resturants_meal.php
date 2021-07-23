@@ -87,18 +87,18 @@ echo mysqli_error($con);
                  <td> <?php echo $data['meal_price'];?></td>
                  <td> <img src="<?=$data['meal_image']; ?>" style=" width:100px; width:100px; " /></td> </td>
                  <td> <?php echo $data['resturants_name'];?></td>
-                 <td>
+                 <!-- <td> 
                  <a href='delete_meal.php?id=<?php echo $data['meal_id'];?>' class='btn btn-danger m-r-1em'>Delete</a>
                  <a href='edit_meal.php?id=<?php echo $data['meal_id'];?>' class='btn btn-primary m-r-1em'>Edit</a>       
                 </td>
-                
+                -->
            </tr> 
 
 
          <?php } ?>
             <!-- end table -->
         </table>
-        <a href='create_meal.php' class='btn btn-danger m-r-1em'>add new meal </a>
+        <a href='../CRUD_RESTURANTS/view_resturants.php' class='btn btn-danger m-r-1em'>back</a>
 
     </div>
     <!-- end .container -->

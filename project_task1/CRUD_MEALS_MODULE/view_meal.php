@@ -9,7 +9,7 @@
 
     $_SESSION['message'] = "Invalid Id";
 
-    header("Locattion: view_meal.php");
+    header("Location: ../CRUD_RESTURANTS/view_resturants.php");
    }
     $sql = "SELECT meals.* , resturants.resturants_name from meals 
             INNER JOIN resturants on meals.resturants_id=resturants.resturants_id 

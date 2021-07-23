@@ -106,6 +106,7 @@
             <!-- end table -->
         </table>
         <a href='create_resturants.php' class='btn btn-danger m-r-1em'>register new resturants </a>
+        <a href='../CRUD_MEALS_MODULE/view_all_resturants_meal.php' class='btn btn-danger m-r-1em'>view all meals </a>
 
     </div>
     <!-- end .container -->

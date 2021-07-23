@@ -11,7 +11,7 @@
 
     $_SESSION['message'] = "Invalid Id";
 
-    header("Locattion: view_meal.php");
+    header("Location: view_meal.php");
    }
 
    # Clean input ...
@@ -134,7 +134,10 @@ function CleanInputs($input){
        if($op)
        {
            $_SESSION['message'] = "Record Updated";
-            header("Location: view_meal.php");
+           $sql2="SELECT resturants_id FROM meals WHERE meal_id='$id'";
+           $op2= mysqli_query($con,$sql2);
+           $DATA=mysqli_fetch_assoc($op2);
+           header("Location: view_meal.php?id=".$DATA[resturants_id]);
        }
        else{
           echo mysqli_error($con);
