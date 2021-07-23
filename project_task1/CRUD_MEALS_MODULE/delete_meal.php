@@ -15,10 +15,10 @@
     $op1 = mysqli_query($con,$sql1);
     $data=mysqli_fetch_assoc($op1);
     $old_file=$data['meal_image'];
-      unlink($old_file);
+      
 
     $sql = "delete from meals where meal_id =".$id;
-
+    unlink($old_file);
     $op = mysqli_query($con,$sql);
      
     if($op){
