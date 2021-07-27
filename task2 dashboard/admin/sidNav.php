@@ -8,6 +8,11 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
+
+
+
+
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Users 
@@ -19,27 +24,30 @@
                                     <a class="nav-link" href="http://localhost/SESSIONONE/online%20resturants/NTI_PHP-LARAVEL-_ONLINE_FOOD_ORDERING_SYSTEM_PROJECT/task2%20dashboard/admin/CRUD_USER_MODULE/view_user.php">view all users</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Resturants
+
+
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Resturants 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        options
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="http://localhost/SESSIONONE/online%20resturants/NTI_PHP-LARAVEL-_ONLINE_FOOD_ORDERING_SYSTEM_PROJECT/task2%20dashboard/admin/CRUD_RESTURANTS/create_resturants.php">ADD New Resturant</a>
+                            <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="http://localhost/SESSIONONE/online%20resturants/NTI_PHP-LARAVEL-_ONLINE_FOOD_ORDERING_SYSTEM_PROJECT/task2%20dashboard/admin/CRUD_RESTURANTS/create_resturants.php">ADD New Resturant</a>
                                             <a class="nav-link" href="http://localhost/SESSIONONE/online%20resturants/NTI_PHP-LARAVEL-_ONLINE_FOOD_ORDERING_SYSTEM_PROJECT/task2%20dashboard/admin/CRUD_RESTURANTS/view_resturants.php">View all Resturants</a>
-                                        </nav>
-                                    </div>
-                                    
                                 </nav>
                             </div>
 
+
+
+
+
+
+
+
+                            
+         
 
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
