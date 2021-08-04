@@ -1,7 +1,7 @@
 <?php 
 include '../helpers/functions.php';
 include '../helpers/db.php';
-include 'rest_data.php';
+include 'rest_meal.php';
 
 
 //echo mysqli_error($con);

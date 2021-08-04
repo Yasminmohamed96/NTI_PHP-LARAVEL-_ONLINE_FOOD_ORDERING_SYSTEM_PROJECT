@@ -1,7 +1,7 @@
 <?php 
 include '../helpers/functions.php';
 include '../helpers/db.php';
-include 'rest_meal.php';
+include 'meal_data.php';
  
     include '../header.php';
     ?>

@@ -40,7 +40,7 @@ include 'helpers/db.php';
      {
         echo "success";
         $_SESSION['admin data']=$data;
-        header("location:"._url_('admin/CRUD_MEALS_MOULE/view_all_resturants_meals.php'));
+        header("location:"._url_('admin/CRUD_MEALS_MODULE/view_all_resturants_meal.php'));
      }
     else
       {

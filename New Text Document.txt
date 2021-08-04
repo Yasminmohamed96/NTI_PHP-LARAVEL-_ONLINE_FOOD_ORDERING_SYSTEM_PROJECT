@@ -1,40 +1,27 @@
-//////////////////////////////////////////
-<?php 
+<?php
+
 include '../helpers/functions.php';
-include '../helpers/db.php'; 
+include '../helpers/db.php';
+include '../header.php';
+include '../nav.php';
+include '../sidNav.php';
+include 'helpers/checkLogin.php';
 
-   
 $op= mysqli_query($con,"SELECT * FROM user_orders
-JOIN order_meal_details
-ON order_meal_details.order_id = order_meal_details.order_id
-JOIN meals
-ON meals.meal_id = order_meal_details.meal_id
-ORDER BY order_meal_details.order_id");
+                           JOIN order_meal_details
+                           ON order_meal_details.order_id = order_meal_details.order_id
+                           JOIN meals
+                           ON meals.meal_id = order_meal_details.meal_id
+                           ORDER BY order_meal_details.order_id");
+                           
+//$result = mysqli_fetch_all($op, MYSQLI_ASSOC);
+//echo json_encode($result);
+//var_dump($result);
 
-
-//    $op  = mysqli_query($con,$sql);
-
-
-
-    include '../header.php';
-    ?>
-      
-      <body class="sb-nav-fixed">
-            
         
-    <?php 
-        include '../nav.php';
-    ?>  
     
-    
-            <div id="layoutSidenav">
-                      
-             
-    <?php 
-        include '../sidNav.php';
-    ?>  
-
-<div id="layoutSidenav_content">
+?>
+    <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Tables</h1>
@@ -55,18 +42,18 @@ ORDER BY order_meal_details.order_id");
                          }else{
                     ?>
                     
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Order data </li>
+                            <li class="breadcrumb-item"><a href="menu.php">menu</a></li>
+                            <li class="breadcrumb-item active">your order data  </li>
                     <?php } ?>
                
                         
                         
                         </ol>
-     
+    
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable 
+                                Orders
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -83,14 +70,19 @@ ORDER BY order_meal_details.order_id");
                                             <th>order meal quantity</th>
                                             <th>order single meal price</th>
                                        
-                                            </tr>
-
-           <?php    
-               while($data = mysqli_fetch_assoc($op)){
-           
-           ?>
-        <tr>
-        <td> <?php echo $data['order_id']; ?></td>
+                                        </thead>
+                                  
+                                    
+                                        <tbody>
+                                       
+                             <?php 
+                             
+                            while($data=mysqli_fetch_assoc($op))
+                            {
+                                     
+                                 ?>           
+                                        <tr>
+                                        <td> <?php echo $data['order_id']; ?></td>
                                         <td> <?php echo $data['order_title']; ?></td>
                                         <td> <?php echo $data['order_quantity']; ?></td>
                                         <td><?php echo $data['order_price']; ?></td>
@@ -102,10 +94,9 @@ ORDER BY order_meal_details.order_id");
                                         <td>
                                         <a href='delete_order.php?id=<?php echo $data['order_id'];?>' class='btn btn-danger m-r-1em'>Delete</a>
                                         <a href='edit_order_status.php?id=<?php echo $data['order_id'];?>' class='btn btn-primary m-r-1em'>update status</a>       
-                                        </td>                               
-                 </tr> 
-
-           <?php } ?>             
+                                        </td>                                       </tr>
+                            <?php
+                                } ?>             
                                         </tbody>
                                     </table>
                                 </div>
@@ -115,14 +106,13 @@ ORDER BY order_meal_details.order_id");
                 </main>
 
 
+                </div>
 
 
                
     
-                
-<?php 
-    include '../footer.php';
-?>  
 
-                
-  
+
+    <?php 
+include "../footer.php";
+?>

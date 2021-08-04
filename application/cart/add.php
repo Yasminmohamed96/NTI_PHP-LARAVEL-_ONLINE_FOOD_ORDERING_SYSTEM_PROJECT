@@ -1,7 +1,9 @@
 <?php
- session_start();
+ //session_start();
 //validate input meal id and quantity
 include '../helpers/functions.php';
+include '../helpers/checkLogin.php';
+
 $Message = array();
 $previous;
 $current;

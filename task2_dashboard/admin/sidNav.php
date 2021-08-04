@@ -3,7 +3,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href=" <?php _url_('admin/CRUD_MEALS_MODULE/view_all_resturants_meal.php'); ?>">
+                            <a class="nav-link" href=" <?php echo _url_('admin/CRUD_MEALS_MODULE/view_all_resturants_meal.php'); ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -20,8 +20,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href=" <?php _url_('admin/CRUD_USER_MODULE/create_user.php'); ?>">register new user </a>
-                                    <a class="nav-link" href=" <?php _url_('admin/CRUD_USER_MODULE/view_user.php'); ?>">view all users</a>
+                                    <a class="nav-link" href=" <?php echo _url_('admin/CRUD_USER_MODULE/create_user.php'); ?>">register new user </a>
+                                    <a class="nav-link" href=" <?php echo _url_('admin/CRUD_USER_MODULE/view_user.php'); ?>">view all users</a>
                                 </nav>
                             </div>
 
@@ -34,11 +34,23 @@
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href=" <?php _url_('admin/CRUD_RESTURANTS_MODULE/create_resturants.php'); ?>">ADD New Resturant</a>
-                                 <a class="nav-link" href=" <?php _url_('admin/CRUD_RESTURANTS_MODULE/view_resturants.php'); ?>">View all Resturants</a>
+                                <a class="nav-link" href=" <?php echo _url_('admin/CRUD_RESTURANTS/create_resturants.php'); ?>">ADD New Resturant</a>
+                                 <a class="nav-link" href=" <?php echo _url_('admin/CRUD_RESTURANTS/view_resturants.php'); ?>">View all Resturants</a>
                                 </nav>
                             </div>
 
+
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Orders 
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                <!-- <a class="nav-link" href=" <?php echo _url_('admin/CRUD_ORDERS/create_resturants.php'); ?>">ADD New Resturant</a> -->
+                                 <a class="nav-link" href=" <?php echo _url_('admin/CRUD_ORDERS/view_orders.php'); ?>">View all ORDERS</a>
+                                </nav>
+                            </div>
 
 
                    

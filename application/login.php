@@ -89,6 +89,7 @@ include 'helpers/db.php';
 </div>
 
 <button type="submit" class="btn btn-primary"style="">Submit</button>
+<a href='register.php' class='btn btn-danger m-r-1em'>register if you dont have an account  </a>
 
 </form>
 
