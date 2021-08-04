@@ -23,9 +23,12 @@
                         <li class="scroll"><a href="<?php echo url('menu.php');?>">Menu</a></li>
                         <li class="scroll"><a href="<?php echo url('cart/view.php');?>">Cart</a></li>
                         <li class="scroll"><a href="<?php echo url('myOrders.php');?>"><?php if (isset($_SESSION['user data'])){echo $_SESSION['user data']['user_name'];} else {}?> Orders </a></li>
-                        <li class="scroll"><a href="<?php echo url('login.php');?>">LogIn</a></li>
+                        <?php
+                        if(isset($_SESSION['user data'])){?>
                         <li class="scroll"><a href="<?php echo url('logout.php');?>">LogOut</a></li>
-
+                        <?php }else {?>
+                            <li class="scroll"><a href="<?php echo url('login.php');?>">LogIn</a></li>
+                        <?php }?>
                         <!-- <li class="scroll"><a href="#our-team">Team</a></li> -->
                         <!-- <li class="scroll"><a href="#contact-us">Contact</a></li>                         -->
                     </ul>
