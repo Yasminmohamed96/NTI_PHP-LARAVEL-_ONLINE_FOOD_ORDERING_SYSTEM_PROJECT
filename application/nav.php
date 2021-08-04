@@ -22,7 +22,7 @@
                         <!-- <li class="scroll"><a href="search.php">Search</a> -->
                         <li class="scroll"><a href="<?php echo url('menu.php');?>">Menu</a></li>
                         <li class="scroll"><a href="<?php echo url('cart/view.php');?>">Cart</a></li>
-                        <li class="scroll"><a href="<?php echo url('myOrders.php');?>"><?php if (isset($_SESSION['user data'])){echo $_SESSION['user data']['user_name'];} else {}?> Orders </a></li>
+                        <li class="scroll"><a href="<?php echo url('myOrders1.php');?>"><?php if (isset($_SESSION['user data'])){echo $_SESSION['user data']['user_name'];} else {}?> Orders </a></li>
                         <?php
                         if(isset($_SESSION['user data'])){?>
                         <li class="scroll"><a href="<?php echo url('logout.php');?>">LogOut</a></li>
