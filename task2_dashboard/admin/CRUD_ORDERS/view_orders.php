@@ -98,7 +98,7 @@ $result=mysqli_fetch_all($op,MYSQLI_ASSOC);
                                             </tr>
 
                                          <?php   
-                                          var_dump($result);
+                                         // var_dump($result);
                                           for ($i=0;$i<count($result);$i++) {
                                          ?>          
                                         <tr>
