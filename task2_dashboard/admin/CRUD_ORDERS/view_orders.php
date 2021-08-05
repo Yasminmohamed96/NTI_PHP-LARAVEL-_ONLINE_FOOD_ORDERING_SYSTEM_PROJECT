@@ -89,7 +89,8 @@ $result=mysqli_fetch_all($op,MYSQLI_ASSOC);
                                             <th>order total quantity</th>
                                             <th>order total price </th>
                                             <th>order status </th>
-                                            <th>order meal id</th>
+
+                                            
                                             <th>order meal name </th>
                                             <th>order meal quantity</th>
                                             <th>order single meal price</th>
@@ -98,27 +99,60 @@ $result=mysqli_fetch_all($op,MYSQLI_ASSOC);
                                             </tr>
 
                                          <?php   
-                                         // var_dump($result);
+                                          $current=$result[0]['order_title'];
+                                          $previous='x';
+                                          $total=count($result);
                                           for ($i=0;$i<count($result);$i++) {
-                                         ?>          
+                                            
+                                            if ($current!=$previous) {
+                                                $quan=$result[$i]['order_quantity'];
+                                                ?>          
                                         <tr>
                                         <td> <?php echo $result[$i]['order_title']; ?></td>
                                         <td> <?php echo $result[$i]['order_quantity']; ?></td>
                                         <td><?php echo $result[$i]['order_price']; ?></td>
                                         <td><?php echo $result[$i]['order_status']; ?></td>
-                                        <td><?php echo $result[$i]['meal_id']; ?></td>
-                                        <td><?php echo $result[$i]['meal_name']; ?></td>
-                                        <td> <?php echo $result[$i]['quantity']; ?></td>
-                                        <td><?php echo $result[$i]['meal_price']; ?></td> 
-                       
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
                                         <a href='delete_order.php?id=<?php echo $data['order_id']; ?>' class='btn btn-danger m-r-1em'>Delete</a>
                                         <a href='edit_order_status.php?id=<?php echo $data['order_id']; ?>' class='btn btn-primary m-r-1em'>update status</a>       
-                                        </td>                               
-                 </tr> 
+                                        </td>
+                                    </tr>
+                                        <?php
+                                            }
+                                            
+                                                
+                                                    ?>
+                                        <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><?php echo $result[$i]['meal_name']; ?></td>
+                                        <td> <?php echo $result[$i]['quantity']; ?></td>
+                                        <td><?php echo $result[$i]['meal_price']; ?></td> 
+                                        </tr>
+           
 
-                                        <?php }
-                                           ?>             
+                                          <?php
+                                        if (($i>=($total))||(($i+1)>=$total))
+                                        {
+                                            $current='x';
+                                            $previous='y';
+                                        } 
+                                        else {
+                                            $current=$result[($i)+1]['order_title'];
+                                            $previous=$result[($i)]['order_title'];
+                                        }
+
+                                    }
+                                            
+                                              
+                                            
+                                          
+                                        ?>             
                                         </tbody>
                                     </table>
                                 </div>

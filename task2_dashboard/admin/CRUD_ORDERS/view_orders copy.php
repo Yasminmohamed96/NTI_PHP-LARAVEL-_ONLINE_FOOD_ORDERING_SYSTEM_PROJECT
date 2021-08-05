@@ -91,7 +91,7 @@ exit();
            
            ?>
         <tr>
-        <td> <?php echo $data['order_id']; ?></td>
+        
                                         <td> <?php echo $data['order_title']; ?></td>
                                         <td> <?php echo $data['order_quantity']; ?></td>
                                         <td><?php echo $data['order_price']; ?></td>
