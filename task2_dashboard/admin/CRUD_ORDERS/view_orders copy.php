@@ -10,8 +10,9 @@ ON order_meal_details.order_id = order_meal_details.order_id
 JOIN meals
 ON meals.meal_id = order_meal_details.meal_id
 ORDER BY order_meal_details.order_id");
-
-
+$result=mysqli_fetch_all($op);
+var_dump($result);
+exit();
 //    $op  = mysqli_query($con,$sql);
 
 

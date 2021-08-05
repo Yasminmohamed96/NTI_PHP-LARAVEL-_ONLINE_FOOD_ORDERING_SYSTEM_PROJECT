@@ -98,22 +98,25 @@ if(isset($_SESSION['user_order_ids']))
                                         <tbody>
                                        
                              <?php 
-                             
                              for ($i=0;$i<count($result);$i++)
-                             {
-                                  
-                                
-                                     
-                                 ?>           
+                                {?>      
                                         <tr>
                                         <td> <?php echo $_SESSION['user_order_ids'][$i]['order_title']; ?></td>
                                         <td><?php echo $_SESSION['user_order_ids'][$i]['order_status']; ?></td>
-                                        <td><?php echo $result[$i][$i]['meal_name']; ?></td>
-                                        <td> <?php echo $result[$i][$i]['quantity']; ?></td>
-                                        <td><?php echo $result[$i][$i]['meal_price']; ?></td>  
-                                                                          </tr>
+                                            <?php
+                                            for ($j=0;$j<count($result[$i]);$j++)
+                                            {?>
+                                        </tr>
+                                        <tr>  
+                                        <td> </td>  
+                                        <td> </td>  
+                                        <td><?php echo $result[$i][$j]['meal_name']; ?></td>
+                                        <td> <?php echo $result[$i][$j]['quantity']; ?></td>
+                                        <td><?php echo $result[$i][$j]['meal_price']; ?></td> 
+                                        </tr>
+                                                                          
                             <?php
-                                } ?>             
+                                }}?>             
                                         </tbody>
                                     </table>
                                 </div>

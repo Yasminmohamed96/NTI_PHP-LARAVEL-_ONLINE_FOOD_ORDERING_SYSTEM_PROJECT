@@ -23,22 +23,32 @@ if (isset($_SESSION['cart_data'])) {
     $sql="insert into user_orders (order_title,order_quantity,order_price,order_status,user_id) values ('$order_title','$total_quantity','$total_price','$status','$user_id')";
     $op=mysqli_query($con, $sql);
     // echo mysqli_error($con);
-
+    var_dump(count($_SESSION['cart_data']));
+    echo('<br>');
     if ($op) {
         $order_id= mysqli_insert_id($con);
         for ($j=0; $j < count($_SESSION['cart_data']) ; $j++) {
             # insert meal id and quantity with order id
             $single_meal_quantity=$_SESSION['cart_data'][$j][1];
             $single_meal_id=$_SESSION['cart_data'][$j][0];
+            var_dump($single_meal_quantity.'data');
+            echo('<br>');
+            
             $sql1="INSERT INTO order_meal_details (quantity,order_id,meal_id) VALUES ('$single_meal_quantity','$order_id','$single_meal_id')";
             $op1=mysqli_query($con, $sql1);
-            unset($_SESSION["cart_data"]);
-            header("location:../menu.php");
+            var_dump($op1);
+        
         }
-    } else {
+        if ($op1)
+        {   unset($_SESSION["cart_data"]);
+            header("location:../menu.php");
+        }  
+    } 
+    else {
         $Message[' message']=["insertion error "];
         header("location:../menu.php");
     }
+
 }
 else
 {

@@ -1,4 +1,4 @@
-//////////////////////////////////////////
+
 <?php 
 include '../helpers/functions.php';
 include '../helpers/db.php'; 
@@ -11,8 +11,17 @@ include '../helpers/db.php';
 // ON meals.meal_id = order_meal_details.meal_id
 // ORDER BY order_meal_details.order_id");
 
-$op=mysqli_query($con,"SELECT * FROM user_orders ");       
-
+//$op=mysqli_query($con,"SELECT * FROM user_orders ");       
+   
+$op= mysqli_query($con,"SELECT * FROM user_orders
+JOIN order_meal_details
+ON order_meal_details.order_id = order_meal_details.order_id
+JOIN meals
+ON meals.meal_id = order_meal_details.meal_id
+ORDER BY order_meal_details.order_id");
+$result=mysqli_fetch_all($op,MYSQLI_ASSOC);
+//var_dump($result);
+//exit();
 
 //    $op  = mysqli_query($con,$sql);
 
@@ -75,33 +84,41 @@ $op=mysqli_query($con,"SELECT * FROM user_orders ");
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                            <td> order id </td>
+                                             <td> order id </td>
                                             <th>order title</th>
                                             <th>order total quantity</th>
                                             <th>order total price </th>
                                             <th>order status </th>
+                                            <th>order meal id</th>
+                                            <th>order meal name </th>
+                                            <th>order meal quantity</th>
+                                            <th>order single meal price</th>
                                            
                                        
                                             </tr>
 
-           <?php    
-               while($data = mysqli_fetch_assoc($op)){
-           
-           ?>
-        <tr>
-        <td> <?php echo $data['order_id']; ?></td>
-                                        <td> <?php echo $data['order_title']; ?></td>
-                                        <td> <?php echo $data['order_quantity']; ?></td>
-                                        <td><?php echo $data['order_price']; ?></td>
-                                        <td><?php echo $data['order_status']; ?></td>
-                             
+                                         <?php   
+                                          var_dump($result);
+                                          for ($i=0;$i<count($result);$i++) {
+                                         ?>          
+                                        <tr>
+                                        <td> <?php echo $result[$i]['order_title']; ?></td>
+                                        <td> <?php echo $result[$i]['order_quantity']; ?></td>
+                                        <td><?php echo $result[$i]['order_price']; ?></td>
+                                        <td><?php echo $result[$i]['order_status']; ?></td>
+                                        <td><?php echo $result[$i]['meal_id']; ?></td>
+                                        <td><?php echo $result[$i]['meal_name']; ?></td>
+                                        <td> <?php echo $result[$i]['quantity']; ?></td>
+                                        <td><?php echo $result[$i]['meal_price']; ?></td> 
+                       
                                         <td>
-                                        <a href='delete_order.php?id=<?php echo $data['order_id'];?>' class='btn btn-danger m-r-1em'>Delete</a>
-                                        <a href='edit_order_status.php?id=<?php echo $data['order_id'];?>' class='btn btn-primary m-r-1em'>update status</a>       
+                                        <a href='delete_order.php?id=<?php echo $data['order_id']; ?>' class='btn btn-danger m-r-1em'>Delete</a>
+                                        <a href='edit_order_status.php?id=<?php echo $data['order_id']; ?>' class='btn btn-primary m-r-1em'>update status</a>       
                                         </td>                               
                  </tr> 
 
-           <?php } ?>             
+                                        <?php }
+                                           ?>             
                                         </tbody>
                                     </table>
                                 </div>
