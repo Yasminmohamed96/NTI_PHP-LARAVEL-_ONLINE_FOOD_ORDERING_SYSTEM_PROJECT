@@ -4,12 +4,14 @@ include '../helpers/functions.php';
 include '../helpers/db.php'; 
 
    
-$op= mysqli_query($con,"SELECT * FROM user_orders
-JOIN order_meal_details
-ON order_meal_details.order_id = order_meal_details.order_id
-JOIN meals
-ON meals.meal_id = order_meal_details.meal_id
-ORDER BY order_meal_details.order_id");
+// $op= mysqli_query($con,"SELECT * FROM user_orders
+// JOIN order_meal_details
+// ON order_meal_details.order_id = order_meal_details.order_id
+// JOIN meals
+// ON meals.meal_id = order_meal_details.meal_id
+// ORDER BY order_meal_details.order_id");
+
+$op=mysqli_query($con,"SELECT * FROM user_orders ");       
 
 
 //    $op  = mysqli_query($con,$sql);
