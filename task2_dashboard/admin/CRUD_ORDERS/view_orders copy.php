@@ -78,7 +78,10 @@ ORDER BY order_meal_details.order_id");
                                             <th>order total quantity</th>
                                             <th>order total price </th>
                                             <th>order status </th>
-                                           
+                                            <th>order meal id</th>
+                                            <th>order meal name </th>
+                                            <th>order meal quantity</th>
+                                            <th>order single meal price</th>
                                        
                                             </tr>
 
@@ -92,7 +95,10 @@ ORDER BY order_meal_details.order_id");
                                         <td> <?php echo $data['order_quantity']; ?></td>
                                         <td><?php echo $data['order_price']; ?></td>
                                         <td><?php echo $data['order_status']; ?></td>
-                             
+                                        <td><?php echo $data['meal_id']; ?></td>
+                                        <td><?php echo $data['meal_name']; ?></td>
+                                        <td> <?php echo $data['quantity']; ?></td>
+                                        <td><?php echo $data['meal_price']; ?></td> 
                                         <td>
                                         <a href='delete_order.php?id=<?php echo $data['order_id'];?>' class='btn btn-danger m-r-1em'>Delete</a>
                                         <a href='edit_order_status.php?id=<?php echo $data['order_id'];?>' class='btn btn-primary m-r-1em'>update status</a>       

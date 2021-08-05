@@ -15,7 +15,7 @@ include 'helpers/checkLogin.php';
             
             <?php 
 
-
+/*
 $op= mysqli_query($con,"SELECT * FROM user_orders
                            JOIN order_meal_details
                            ON order_meal_details.order_id = order_meal_details.order_id
@@ -23,11 +23,12 @@ $op= mysqli_query($con,"SELECT * FROM user_orders
                            ON meals.meal_id = order_meal_details.meal_id
                            ORDER BY order_meal_details.order_id");
                            
-$result = mysqli_fetch_all($op, MYSQLI_ASSOC);
+$result = mysqli_fetch_all($op, MYSQLI_ASSOC);*/
 //echo json_encode($result);
 //var_dump($result);
 
-        
+$op=mysqli_query($con,"SELECT * FROM user_orders WHERE user_id='$user_ID'");       
+$result = mysqli_fetch_all($op, MYSQLI_ASSOC);        
     
 ?>
     <div id="layoutSidenav_content">

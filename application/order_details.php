@@ -42,7 +42,7 @@ if(isset($_SESSION['user_order_ids']))
 
     }
 }
- var_dump($result,'<br>');
+ //var_dump($result,'<br>');
  //exit();
 ?>
     <div id="layoutSidenav_content">
